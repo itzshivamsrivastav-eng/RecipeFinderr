@@ -31,11 +31,37 @@
             font-size: 48px;
             color: red;
             border: 3px inset green;
-            border-radius: 20px;
+            border-radius: 15px;
             background-color: rgba(255,255,255,0.8);
+            
         }
 
-        .search{
+        .searchHeading{
+            margin-left: 40px;
+            display: inline-block;
+            border-bottom: 3px inset black;
+            font-size: 28px;
+            color: red;
+            border-radius: 20px;
+            background-color: rgba(255,255,255,0.8);
+            padding: 5px 10px;
+            font-family: 'Cursive', sans-serif;
+        }
+
+        .favoriteHeading{
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: 40px;
+            border-bottom: 3px inset black;
+            font-size: 28px;
+            color: red;
+            border-radius: 20px;
+            background-color: rgba(255,255,255,0.8);
+            padding: 5px 10px;
+            font-family: 'Cursive', sans-serif;
+        }
+        .searchBox{
             display: block;
             width: 90%;
             max-width: 760px;
@@ -46,7 +72,7 @@
             border-radius: 50px;
         }
 
-        .search::placeholder{
+        .searchBox::placeholder{
             font-size: 24px;
         }
 
@@ -94,6 +120,59 @@
             color: #0f766e;
             font-family: 'Poppins', sans-serif;
         }
+        .favorite-item{
+            margin-right: 40px;
+            margin-left: 80%;
+            padding-left: 10px;
+            border-left: 2px outset black;
+            border-right: 2px outset black;
+            cursor: pointer;
+            color: rgb(55, 57, 131);
+            background-color: rgb(223, 186, 218);
+            
+        }
+        .favorite-item:last-child{
+            padding-bottom: 10px;
+            border-bottom: 2px outset black;
+            
+        }
+
+        .favorite-item:first-of-type{
+            border-top: 2px outset black;
+            padding-top: 10px;
+            
+        }
+        
+        .history-item{
+            margin-right: 80%;
+            margin-left: 40px;
+            padding-left: 10px;
+            border-left: 2px outset black;
+            border-right: 2px outset black;
+            cursor: pointer;
+            color: rgb(55, 57, 131);
+            background-color: rgba(223, 234, 247, 0.797);
+            
+        }
+        
+        .history-item:last-child{
+            padding-bottom: 10px;
+            border-bottom: 2px outset black;
+            
+        }
+        .history-item:first-of-type{
+            border-top: 2px outset black;
+            padding-top: 10px;
+            
+        }
+
+        .history-item:hover{
+            color: red;
+        }
+        .history-item:active{
+            color: green;
+        }
+    
 
         .img{
             width: 250px;
@@ -112,6 +191,19 @@
             background-color: rgba(255,255,255,0.5);
             border-radius: 20px;
             cursor: pointer;
+            text-decoration: none;
+        }
+        .favbtn{
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid red;
+            border-radius: 20px;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            color: red;
+            margin: 20px;
+            font-size: 18px;
+            transition: all 0.3s ease;
         }
 
         .overlay{
@@ -177,48 +269,68 @@
 
         /* MOBILE */
 
-        @media (max-width: 768px){
-
-            .wr{
-                margin-left: 10px;
-                margin-right: 10px;
-                font-size: 18px;
-                padding: 10px;
-                word-break: normal;
-            }
+        @media (max-width:768px){
 
             h1{
-                margin-top: 80px;
-                font-size: 30px;
+                width: 95%;
+                margin-top: 60px;
+                font-size: 28px;
                 padding: 15px;
             }
 
-            .search{
+            .searchBox{
+                width: 95%;
                 font-size: 18px;
                 padding: 15px;
             }
 
-            .search::placeholder{
+            .searchBox::placeholder{
                 font-size: 18px;
             }
 
             .btn{
-                font-size: 18px;
+                font-size: 16px;
                 padding: 12px 20px;
             }
 
+            .searchHeading,
+            .favoriteHeading{
+                display: block;
+                width: fit-content;
+                margin: 20px auto;
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .history-item,
+            .favorite-item{
+                width: 90%;
+                max-width: none;
+                margin: 0 auto;
+                font-size: 16px;
+            }
+
+            #clearHistory{
+                width: 200px;
+                margin: 20px auto !important;
+                text-align: center;
+            }
+
+            .recipe-card{
+                width: 95%;
+                height: 90vh;
+                padding: 15px;
+            }
+
             .wr{
-                margin: 10px;
+                margin: 10px 0;
                 font-size: 18px;
+                padding: 10px;
             }
 
             .img{
                 width: 180px;
-            }
-
-            .ytbtn{
-                font-size: 16px;
-                padding: 10px 20px;
+                border-width: 12px;
             }
 
             .ingre-list,
@@ -226,21 +338,56 @@
                 font-size: 16px;
             }
 
+            .ytbtn,
+            .favbtn{
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
             footer{
-                font-size: 14px;
+                font-size: 13px;
                 padding: 12px;
             }
         }
+    @media (max-width:480px){
 
+        h1{
+            font-size: 24px;
+        }
+
+        .searchBox{
+            font-size: 16px;
+        }
+
+        .searchHeading,
+        .favoriteHeading{
+            font-size: 20px;
+        }
+
+        .img{
+            width: 150px;
+        }
+
+        .wr,
+        .para,
+        .ingre-list{
+            font-size: 15px;
+        }
+    }
+    
     </style>
 </head>
 <body>
     <h1>Search For Your Recipes</h1>
-    <input type="text" class = "search" id="searchInput" placeholder="Enter recipe name...">
+    <input type="text" class = "searchBox" id="searchInput" placeholder="Enter recipe name...">
     <button class = "btn" id="searchButton">Search🔎</button>
+    <div id="historyBox"></div>
+    <p id = "clearHistory" class = "btn" style="margin-right: 80%; margin-left: 2.5%; background-color: rgba(255,255,255,0.8)">Clear History</p>
+    <div id="favoriteBox"></div>
     <div class="overlay hidden" id="overlay">
         <div class="recipe-card">
             <button id="closeBtn">❌</button>
+            <button class = "ytbtn" id="favoriteBtn">Add to Favorites ❤️</button>
             <div id="recipe-card"></div>
         </div>
     </div>
@@ -251,13 +398,23 @@
         const searchInput = document.getElementById("searchInput");
         const overlay = document.getElementById("overlay");
         const closeBtn = document.getElementById("closeBtn");
+        const historyBox = document.getElementById("historyBox");
+        const clearHistory = document.getElementById("clearHistory");
+        const favoriteBtn = document.getElementById("favoriteBtn");
 
         closeBtn.addEventListener("click", () => {
                 overlay.classList.add("hidden");
         });
 
-        function showRecipe(recipe) {
+        favoriteBtn.addEventListener("click", () => {
+            const recipeName = searchInput.value.trim();
+            if (recipeName !== "") {
+                saveFavorite(recipeName);
+                showFavorite();
+            }
+        });
 
+        function showRecipe(recipe) {
             let ingredients = "";
 
             for(let i = 1; i <= 20; i++){
@@ -313,16 +470,87 @@
             return data.meals[0];
         }
 
+        function saveHistory(recipeName) {
+            let history = JSON.parse(localStorage.getItem("history")) || [];
+            history.push(recipeName);
+
+            if(!history.includes(recipeName)){
+                history.unshift(recipeName);
+            }
+
+            localStorage.setItem("history", JSON.stringify(history));
+        }
+
         async function handleSearch(recipeName) {
             loadingSpinner();
             searchButton.disabled = true;
             try {
+                saveHistory(recipeName);
+                showHistory();
+
                 const recipe = await fetchRecipe(recipeName);
                 showRecipe(recipe);
             } catch (err) {
                 showError(err.message || 'Something went wrong. Please try again.');
             } finally {
                 searchButton.disabled = false;
+            }
+        }
+        function saveFavorite(recipename) {
+            let favorite = JSON.parse(localStorage.getItem("favorite")) || [];
+            favorite.push(recipename);
+
+            localStorage.setItem("favorite", JSON.stringify(favorite));
+        }
+
+        function showFavorite() {
+            let favorite = JSON.parse(localStorage.getItem("favorite")) || [];
+
+            const favoriteBox = document.getElementById("favoriteBox");
+            favoriteBox.innerHTML = "<h2 class=\"favoriteHeading\">Favorite Recipes :</h2>";
+
+            for(let item of favorite){
+                favoriteBox.innerHTML += `<li class="favorite-item">${item}</li>`;
+            }
+
+            const items = document.querySelectorAll(".favorite-item");
+
+            for(let i = 0; i < items.length; i++){
+
+                items[i].addEventListener("click", function(){
+
+                    const recipeName = items[i].innerText;
+
+                    searchInput.value = recipeName;
+
+                    handleSearch(recipeName);
+                });
+            }
+        }
+
+        function showHistory (){
+            let history = JSON.parse(localStorage.getItem("history")) || [];
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+            historyBox.innerHTML = "<h2 class=\"searchHeading\">Recent Searches :</h2>";
+
+            for(let item of history){
+                historyBox.innerHTML += `<li class="history-item">${item}</li>`;
+            }
+
+            const items = document.querySelectorAll(".history-item");
+
+            for(let i = 0; i < items.length; i++){
+
+                items[i].addEventListener("click", function(){
+
+                    const recipeName = items[i].innerText;
+
+                    searchInput.value = recipeName;
+
+                    handleSearch(recipeName);
+                });
             }
         }
 
@@ -341,7 +569,13 @@
                 searchButton.click();
             }
         });
-                
+
+        clearHistory.addEventListener("click", function(){
+            localStorage.removeItem("history");
+            showHistory();
+        });
+        showHistory();
+        showFavorite();
 
 
     </script>
