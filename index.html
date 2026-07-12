@@ -490,11 +490,9 @@
 
         function saveHistory(recipeName) {
             let history = JSON.parse(localStorage.getItem("history")) || [];
-            history.push(recipeName);
+            history = history.filter(item => item !== recipeName);
 
-            if(!history.includes(recipeName)){
-                history.unshift(recipeName);
-            }
+            history.unshift(recipeName);
 
             localStorage.setItem("history", JSON.stringify(history));
         }
@@ -516,7 +514,9 @@
         }
         function saveFavorite(recipename) {
             let favorite = JSON.parse(localStorage.getItem("favorite")) || [];
-            favorite.push(recipename);
+            favorite = favorite.filter(item => item !== recipeName);
+
+            favorite.unshift(recipeName);
 
             localStorage.setItem("favorite", JSON.stringify(favorite));
         }
