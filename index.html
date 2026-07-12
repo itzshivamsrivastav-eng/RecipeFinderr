@@ -396,6 +396,8 @@
     <h1>Search For Your Recipes</h1>
     <input type="text" class = "searchBox" id="searchInput" placeholder="Enter recipe name...">
     <button class = "btn" id="searchButton">Search🔎</button>
+    <hr class="section-line">
+    <hr class="section-line">
     <div id="historyBox"></div>
     <p id = "clearHistory" class = "btn" style="margin-right: 80%; margin-left: 2.5%; background-color: rgba(255,255,255,0.8)">Clear History</p>
 
@@ -512,7 +514,7 @@
                 searchButton.disabled = false;
             }
         }
-        function saveFavorite(recipename) {
+        function saveFavorite(recipeName) {
             let favorite = JSON.parse(localStorage.getItem("favorite")) || [];
             favorite = favorite.filter(item => item !== recipeName);
 
@@ -548,6 +550,8 @@
 
         function showHistory (){
             let history = JSON.parse(localStorage.getItem("history")) || [];
+
+             const historyBox = document.getElementById("historyBox");
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
