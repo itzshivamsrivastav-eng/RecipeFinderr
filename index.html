@@ -3,87 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Founder</title>
-
+    <title>Recipe Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+
+        
+
         *{
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body{
-            background-image: url('homepage.png');
+            background-image: url('searchbarpage.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             min-height: 100vh;
+            margin: 0;
         }
 
-        .container{
+        h1{
             width: 90%;
-            max-width: 600px;
-
-            text-align: center;
-            color: red;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-
-            margin: 250px auto 40px;
+            max-width: 760px;
+            margin: 150px auto 30px;
             padding: 20px;
+            text-align: center;
+            font-size: 48px;
+            color: red;
+            border: 3px inset green;
+            border-radius: 20px;
+            background-color: rgba(255,255,255,0.8);
+        }
 
-            border: 10px solid transparent;
-            border-image: url('border.png') 30 stretch;
+        .search{
+            display: block;
+            width: 90%;
+            max-width: 760px;
+            margin: 20px auto;
+            padding: 20px;
+            font-size: 24px;
+            border: 3px inset green;
+            border-radius: 50px;
+        }
 
-            background-color: rgba(255,255,255,0.5);
+        .search::placeholder{
+            font-size: 24px;
         }
 
         .btn{
             display: block;
-
-            width: 90%;
-            max-width: 450px;
-
-            margin: 0 auto;
-
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: brown;
             background-color: rgba(255,255,255,0.5);
             border-radius: 20px;
-
-            padding: 15px 25px;
-
-            color: red;
-            font-size: 20px;
             cursor: pointer;
         }
 
+        .wr{
+            text-align: center;
+            color: #dc2626;
+            border-top: 2px inset green;
+            border-bottom: 2px inset green;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .ingre-heading{
+            display: inline-block;
+            color: black;
+            border-bottom: 3px inset rgb(171,92,92);
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+
+        .ingre-list{
+            font-size: 20px;
+            color: lch(21.69% 60.6 311.15);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .para{
+            font-size: 20px;
+            padding: 10px;
+            border: 3px inset rgb(171,92,92);
+            border-radius: 10px;
+            color: #0f766e;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .img{
+            width: 250px;
+            display: block;
+            margin: 20px auto;
+            border: 20px solid transparent;
+            border-image: url('border.png') 30 stretch;
+        }
+
+        .ytbtn{
+            display: block;
+            margin: 30px auto;
+            padding: 10px 30px;
+            font-size: 20px;
+            color: red;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .recipe-card{
+            width: 90%;
+            max-width: 700px;
+            height: 80vh;
+            background-image: url('background.png');
+            padding: 20px;
+            border-radius: 20px;
+            overflow-y: auto;
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        .error{
+            color: red;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .spinner{
+            width: 28px;
+            height: 28px;
+            border: 3px solid rgba(255,255,255,0.25);
+            border-top-color: orange;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin{
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
         footer{
+            width: 100%;
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
-
-            text-align: center;
             padding: 20px;
-
+            text-align: center;
             font-size: 18px;
             color: white;
-
             background-color: rgba(0,0,0,0.7);
         }
 
-        /* Mobile */
+        /* MOBILE */
 
         @media (max-width: 768px){
 
-            .container{
-                margin-top: 150px;
-                font-size: 28px;
+            .wr{
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 18px;
+                padding: 10px;
+                word-break: normal;
+            }
+
+            h1{
+                margin-top: 80px;
+                font-size: 30px;
                 padding: 15px;
             }
 
+            .search{
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            .search::placeholder{
+                font-size: 18px;
+            }
+
             .btn{
-                width: 90%;
-                font-size: 16px;
+                font-size: 18px;
                 padding: 12px 20px;
+            }
+
+            .wr{
+                margin: 10px;
+                font-size: 18px;
+            }
+
+            .img{
+                width: 180px;
+            }
+
+            .ytbtn{
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .ingre-list,
+            .para{
+                font-size: 16px;
             }
 
             footer{
@@ -95,11 +235,115 @@
     </style>
 </head>
 <body>
-    <h1 class = "container">Welcome to the Recipe Founder!</h1>
-    <a href = "index2.html"><button class = "btn">Proceed to explore delicious recipes!</button></a>
-    <footer>
-    © 2026 Recipe Founder | Made with ❤️ by Shivam Srivastava™
-    </footer>
+    <h1>Search For Your Recipes</h1>
+    <input type="text" class = "search" id="searchInput" placeholder="Enter recipe name...">
+    <button class = "btn" id="searchButton">Search🔎</button>
+    <div class="overlay hidden" id="overlay">
+        <div class="recipe-card">
+            <button id="closeBtn">❌</button>
+            <div id="recipe-card"></div>
+        </div>
+    </div>
+    <footer>© 2026 Recipe Founder | Made with ❤️ by Shivam Srivastava™</footer>
+    <script>
+        const recipeContent = document.getElementById("recipe-card");
+        const searchButton = document.getElementById("searchButton");
+        const searchInput = document.getElementById("searchInput");
+        const overlay = document.getElementById("overlay");
+        const closeBtn = document.getElementById("closeBtn");
 
+        closeBtn.addEventListener("click", () => {
+                overlay.classList.add("hidden");
+        });
+
+        function showRecipe(recipe) {
+
+            let ingredients = "";
+
+            for(let i = 1; i <= 20; i++){
+                if(recipe[`strIngredient${i}`]){
+                    ingredients += `<li>${recipe[`strIngredient${i}`]}</li>`;
+                }
+            }
+            
+            recipeContent.innerHTML = `
+                
+                <h2 class= "wr"">Dish Name : ${recipe.strMeal}</h2>
+                <img src="${recipe.strMealThumb}" class ="img">
+                <h2 class = "wr">Category : ${recipe.strCategory}</h2>
+                <h2 class = "wr">Country : ${recipe.strArea}</h2>
+                <a href="${recipe.strYoutube}" target="_blank">
+                    <button class="ytbtn">Watch Recipe Video 🎥</button></a>
+                <h2 class = "ingre-heading">
+                Ingredients : </h2><ul class="ingre-list">${ingredients}</ul>
+                <p class="para">Instructions : ${recipe.strInstructions}</p>
+            `;
+            
+            // overlay.classList.remove("hidden");
+        }
+
+        function loadingSpinner() {
+
+            overlay.classList.remove("hidden");
+
+            recipeContent.innerHTML = 
+            `<div class="spinner"></div>
+            <p>Loading your favourite dish</p>
+            `;
+        }
+
+        function showError(message) {
+            overlay.classList.remove("hidden");
+
+            recipeContent.innerHTML = `<p class="error">${message}</p>`;
+        }
+
+        async function fetchRecipe(recipeName) {
+            const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipeName}`;
+
+            const response  = await fetch(url);
+
+            if (!response.ok) throw new Error('Request failed');
+
+            const data = await response.json();
+
+            if (!data.meals || data.meals.length === 0) {
+                throw new Error(`Couldn't find a recipe named "${recipeName}". Please try another name.`);
+            }
+            return data.meals[0];
+        }
+
+        async function handleSearch(recipeName) {
+            loadingSpinner();
+            searchButton.disabled = true;
+            try {
+                const recipe = await fetchRecipe(recipeName);
+                showRecipe(recipe);
+            } catch (err) {
+                showError(err.message || 'Something went wrong. Please try again.');
+            } finally {
+                searchButton.disabled = false;
+            }
+        }
+
+        searchButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const recipeName = searchInput.value.trim();
+            if (recipeName === "") {
+                showError("Please enter a recipe name.");
+                return;
+            }
+            handleSearch(recipeName);
+        });
+
+        searchInput.addEventListener("keydown", function(e){
+            if(e.key === "Enter"){
+                searchButton.click();
+            }
+        });
+                
+
+
+    </script>
 </body>
 </html>
