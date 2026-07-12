@@ -165,6 +165,12 @@
             padding-top: 10px;
             
         }
+        .favorite-item:hover{
+            color:red;
+        }
+        .favorite-item:active{
+            color:green;
+        }
 
         .history-item:hover{
             color: red;
@@ -247,6 +253,15 @@
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: auto;
+        }
+
+        .section-line{
+            width: 90%;
+            margin: 40px auto;
+            border: none;
+            border-top: 3px solid black;
+            border-image: url('border.png') 20 stretch;
+            border-radius: 10px;
         }
 
         @keyframes spin{
@@ -383,6 +398,9 @@
     <button class = "btn" id="searchButton">Search🔎</button>
     <div id="historyBox"></div>
     <p id = "clearHistory" class = "btn" style="margin-right: 80%; margin-left: 2.5%; background-color: rgba(255,255,255,0.8)">Clear History</p>
+
+    <hr class="section-line">
+    <hr class="section-line">
     <div id="favoriteBox"></div>
     <div class="overlay hidden" id="overlay">
         <div class="recipe-card">
@@ -425,7 +443,7 @@
             
             recipeContent.innerHTML = `
                 
-                <h2 class= "wr"">Dish Name : ${recipe.strMeal}</h2>
+                <h2 class= "wr">Dish Name : ${recipe.strMeal}</h2>
                 <img src="${recipe.strMealThumb}" class ="img">
                 <h2 class = "wr">Category : ${recipe.strCategory}</h2>
                 <h2 class = "wr">Country : ${recipe.strArea}</h2>
