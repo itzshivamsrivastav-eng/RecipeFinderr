@@ -423,6 +423,8 @@
         const clearHistory = document.getElementById("clearHistory");
         const favoriteBtn = document.getElementById("favoriteBtn");
 
+        let dishName = null;
+
         closeBtn.addEventListener("click", () => {
                 overlay.classList.add("hidden");
         });
@@ -430,7 +432,7 @@
         favoriteBtn.addEventListener("click", () => {
             const recipeName = searchInput.value.trim();
             if (recipeName !== "") {
-                saveFavorite(recipeName);
+                saveFavorite(dishName);
                 showFavorite();
             }
         });
@@ -504,10 +506,12 @@
             loadingSpinner();
             searchButton.disabled = true;
             try {
-                saveHistory(recipeName);
-                showHistory();
-
                 const recipe = await fetchRecipe(recipeName);
+
+                dishName = recipe.strMeal;
+                saveHistory(recipe.strMeal);
+                showHistory();
+                
                 showRecipe(recipe);
             } catch (err) {
                 showError(err.message || 'Something went wrong. Please try again.');
